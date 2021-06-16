@@ -1,0 +1,23 @@
+body {
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+// help older browsers understand HTML semantics
+section,
+article,
+aside,
+footer,
+header,
+nav {
+  display: block;
+}

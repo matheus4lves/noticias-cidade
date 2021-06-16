@@ -1,3 +1,2 @@
-body {
-  background-color: blue;
-}
+@import "normalize.css";
+@import "base/_global.css";
