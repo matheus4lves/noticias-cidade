@@ -1,0 +1,39 @@
+.primary-nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    /* Do you only need to control the layout by row? use a flexbox */
+    display: flex;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  a {
+    /* Displaying the links as block elements makes the whole link area
+    clickable (not just the text), and it allows us to specify the width
+    (padding, margin, hight etc. if you want */
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 0.8rem 1rem;
+    background: $mainRed url("assets/images/divisor.png") no-repeat left center;
+  }
+
+  a.active {
+    background-color: $lightRed;
+  }
+
+  a:hover {
+    color: #69001d;
+  }
+
+  /* select and style the <a> element where the <li> element is the first
+  child of its parent */
+  li:first-child a {
+    background-image: none;
+  }
+}

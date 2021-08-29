@@ -1,6 +1,8 @@
 body {
   font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
     "Lucida Sans", Arial, sans-serif;
+
+  background: #fff url("assets/images/fundo.png") repeat-x;
 }
 
 img {
