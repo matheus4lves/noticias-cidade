@@ -8,13 +8,7 @@ const CssMinimizerWebpackPlugin = require("css-minimizer-webpack-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const fse = require("fs-extra");
 const { loader } = require("mini-css-extract-plugin");
-const postCssPlugins = [
-  require("postcss-import"),
-  require("postcss-mixins"),
-  require("postcss-simple-vars"),
-  require("postcss-nested"),
-  require("autoprefixer"),
-];
+const postCssPlugins = [require("postcss-import"), require("postcss-mixins"), require("postcss-simple-vars"), require("postcss-nested"), require("autoprefixer")];
 
 class RunAfterCompile {
   apply(compiler) {
@@ -27,7 +21,10 @@ class RunAfterCompile {
 let cssConfig = {
   test: /\.css$/i,
   use: [
-    "css-loader?url=false",
+    {
+      loader: "css-loader",
+      options: { url: false },
+    },
     {
       loader: "postcss-loader",
       options: { postcssOptions: { plugins: postCssPlugins } },
@@ -39,19 +36,7 @@ let cssConfig = {
 let config = {
   entry: "./app/assets/scripts/index.js",
   module: {
-    rules: [
-      cssConfig,
-      {
-        test: /\.js$/,
-        exclude: /(node_modules)/,
-        use: {
-          loader: "babel-loader",
-          options: {
-            presets: ["@babel/preset-react", "@babel/preset-env"],
-          },
-        },
-      },
-    ],
+    rules: [cssConfig],
   },
   plugins: [
     new HtmlWebpackPlugin({
@@ -69,20 +54,18 @@ if (currentTask == "dev") {
     path: path.resolve(__dirname, "app"),
   };
   config.devServer = {
-    before: function (app, server) {
-      server._watch("./app/**/*.html");
+    watchFiles: ["./app/**/*.html"],
+    static: {
+      directory: path.join(__dirname, "app"),
     },
-    contentBase: path.join(__dirname, "app"),
     hot: true,
     port: 3000,
-    host: "0.0.0.0",
-    useLocalIp: true,
+    host: "local-ip",
     open: {
-      app: [
-        "/opt/firefox-84.0b4/firefox/firefox",
-        "-P WebDeveloper",
-        "--private-window",
-      ],
+      app: {
+        name: "/opt/firefox-84.0b4/firefox/firefox",
+        arguments: ["--private-window"],
+      },
     },
   };
   config.mode = "development";
@@ -91,6 +74,16 @@ if (currentTask == "dev") {
 // build configuration
 if (currentTask == "build") {
   cssConfig.use.unshift(MiniCssExtractPlugin.loader);
+  config.module.rules.push({
+    test: /\.js$/,
+    exclude: /(node_modules)/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-react", "@babel/preset-env"],
+      },
+    },
+  });
   config.output = {
     filename: "[name].[chunkhash].js",
     chunkFilename: "[name].[chunkhash].js",
@@ -102,11 +95,7 @@ if (currentTask == "build") {
     minimize: true,
     minimizer: [`...`, new CssMinimizerWebpackPlugin()],
   };
-  config.plugins.push(
-    new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin({ filename: "styles.[chunkhash].css" }),
-    new RunAfterCompile()
-  );
+  config.plugins.push(new CleanWebpackPlugin(), new MiniCssExtractPlugin({ filename: "styles.[chunkhash].css" }), new RunAfterCompile());
 }
 
 module.exports = config;
