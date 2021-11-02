@@ -1,0 +1,31 @@
+.site-body {
+  display: grid;
+  grid-template-columns: 11.25rem 16.875rem 16.875rem;
+  column-gap: 15px;
+  margin-top: 60px;
+  background: #f5f5f5;
+
+  &__aside {
+    grid-column-start: 1;
+  }
+
+  &__main {
+    grid-column-start: 2;
+  }
+
+  &__secondary {
+    grid-column-start: 3;
+  }
+
+  &--one-column {
+    grid-template-columns: 1fr;
+
+    .site-body__main {
+      grid-column-start: 1;
+    }
+  }
+
+  &--two-columns {
+    grid-template-columns: 11.25rem 34.6875rem;
+  }
+}

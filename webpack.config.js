@@ -32,18 +32,25 @@ let cssConfig = {
   ],
 };
 
+let pages = fse
+  .readdirSync("./app")
+  .filter(function (file) {
+    return file.endsWith(".html");
+  })
+  .map(function (page) {
+    return new HtmlWebpackPlugin({
+      filename: page,
+      template: `./app/${page}`,
+    });
+  });
+
 // configuration that can be shared between dev and build
 let config = {
   entry: "./app/assets/scripts/index.js",
   module: {
     rules: [cssConfig],
   },
-  plugins: [
-    new HtmlWebpackPlugin({
-      filename: "index.html",
-      template: "./app/index.html",
-    }),
-  ],
+  plugins: pages,
 };
 
 // dev configuration
