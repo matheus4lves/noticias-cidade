@@ -11,4 +11,10 @@
     border: 3px solid #dfdfdf;
     width: 98%;
   }
+
+  &--secondary {
+    .article__title {
+      background-color: #de003e;
+    }
+  }
 }
