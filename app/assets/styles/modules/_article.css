@@ -1,0 +1,14 @@
+.article {
+  &__title {
+    color: white;
+    text-transform: uppercase;
+    display: inline;
+    font-size: 0.8rem;
+    padding: 3px;
+    background-color: $mainRed;
+  }
+  &__img {
+    border: 3px solid #dfdfdf;
+    width: 98%;
+  }
+}
