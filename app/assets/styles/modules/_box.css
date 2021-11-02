@@ -1,0 +1,18 @@
+.box {
+  background: $mainGray url("./assets/images/fundo-caixa.png");
+  margin: 10px 0;
+  padding: 5px;
+
+  &__headline {
+    font-size: 1.2rem;
+    background-color: #294c71;
+    color: white;
+    padding: 5px;
+    margin: 0;
+  }
+
+  &__content {
+    background-color: white;
+    padding: 5px 0;
+  }
+}

@@ -1,0 +1,27 @@
+.secondary-nav {
+  ul {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+  }
+
+  a {
+    text-decoration: none;
+    font-size: 0.9rem;
+    padding: 3px;
+    display: block;
+    line-height: 30px;
+    color: black;
+    border-bottom: 1px solid $mainGray;
+  }
+
+  li:last-child a {
+    border: none;
+  }
+
+  a:hover {
+    color: #a1a1a1;
+    background: #f9f9f9 url("./assets/images/marcador.png") no-repeat left center;
+    padding-left: 20px;
+  }
+}
