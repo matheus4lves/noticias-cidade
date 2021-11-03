@@ -1,6 +1,6 @@
 .news-preview {
   display: grid;
-  grid-template-columns: auto auto;
+  grid-template-columns: 5rem auto;
 
   &__img {
     grid-column-start: 1;
