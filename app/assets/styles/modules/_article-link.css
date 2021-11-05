@@ -1,0 +1,42 @@
+.article-link {
+  display: grid;
+  grid-template-columns: 5rem auto;
+  text-decoration: none;
+  border-bottom: 1px solid #ccc;
+  height: 4.5rem;
+
+  &:hover {
+    background-color: #eee;
+    cursor: pointer;
+  }
+
+  &__img {
+    grid-column-start: 1;
+    width: 5rem;
+    padding: 5px 0;
+    align-self: center;
+  }
+
+  &__contents {
+    grid-column-start: 2;
+    padding: 5px 0px 5px 5px;
+    align-self: center;
+    margin-top: -17px;
+  }
+
+  &__title {
+    font-size: 0.9rem;
+    margin: 0;
+    color: #3e7ab9;
+    text-transform: uppercase;
+  }
+
+  &__summary {
+    font-size: 0.7rem;
+    margin: 0;
+  }
+
+  &--last {
+    border: none;
+  }
+}

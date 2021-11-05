@@ -8,35 +8,20 @@
     background-color: $mainRed;
   }
 
+  &__title--secondary {
+    background-color: #de003e;
+  }
+
   &__img {
     border: 3px solid #dfdfdf;
     width: 98%;
   }
 
-  &--secondary {
-    .article__title {
-      background-color: #de003e;
-    }
+  &__summary {
+    margin: 0;
   }
 
-  a {
+  &__link {
     font-size: 0.9rem;
-  }
-
-  &--link {
-    a {
-      text-decoration: none;
-      border-bottom: 1px solid #ccc;
-      height: 4.5rem;
-    }
-
-    &:last-child a {
-      border: none;
-    }
-
-    a:hover {
-      background-color: #eee;
-      cursor: pointer;
-    }
   }
 }
