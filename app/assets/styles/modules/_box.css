@@ -14,10 +14,10 @@
   &__content {
     background-color: white;
     padding: 5px;
-  }
 
-  &__content--no-padding {
-    background-color: white;
-    padding: 0;
+    &--no-padding {
+      background-color: white;
+      padding: 0;
+    }
   }
 }
