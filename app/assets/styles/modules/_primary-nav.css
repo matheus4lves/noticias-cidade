@@ -1,5 +1,5 @@
 .primary-nav {
-  ul {
+  &__list {
     margin: 0;
     padding: 0;
     list-style-type: none;
@@ -7,7 +7,7 @@
     display: flex;
   }
 
-  a {
+  &__link {
     /* Displaying the links as block elements makes the whole link area
     clickable (not just the text), and it allows us to specify the width
     (padding, margin, hight etc. if you want */
@@ -18,19 +18,17 @@
     font-weight: bold;
     padding: 0.8rem 1rem;
     background: $mainRed url("assets/images/divisor.png") no-repeat left center;
+
+    &--no-background {
+      background-image: none;
+    }
   }
 
-  a.active {
+  &__link--active {
     background-color: $lightRed;
   }
 
-  a:hover {
+  &__link:hover {
     color: #69001d;
-  }
-
-  /* select and style the <a> element where the <li> element is the first
-  child of its parent */
-  li:first-child a {
-    background-image: none;
   }
 }
