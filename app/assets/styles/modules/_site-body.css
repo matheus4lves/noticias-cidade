@@ -19,10 +19,6 @@
 
   &--one-column {
     grid-template-columns: 1fr;
-
-    .site-body__main {
-      grid-column-start: 1;
-    }
   }
 
   &--two-columns {
